@@ -1,9 +1,9 @@
 package com.topicos.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(collectionResourceRel = "produtos", path = "produtos")
+@Repository
 public interface ProdutoRepositorio extends JpaRepository<Produto, Long>{
 
 }

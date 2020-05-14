@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LISTANDO PRODUTOS</title>
+</head>
+<body>
+	<h1>Produtos</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>EXCLUIR</th>
+				<th>ID</th>
+				<th>NOME</th>
+				<th>DESCRIÇÃO</th>
+				<th>PREÇO</th>
+				<th>ALTERAR</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${produtos}">
+				<td ><a th:href="${'/produtos/excluir?id=' + produto.id}">Excluir</a></td>
+				<td th:text="${produto.id}">
+				<td th:text="${produto.nome}"></td>
+				<td th:text="${produto.descricao}"></td>
+				<td th:text="${produto.preco}"></td>
+				<td ><a th:href="${'/produtos/antesAlterar?id=' + produto.id}">Alterar</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<hr />
+	
+	<form action="/produtos/inserir" method="post" th:object=${produtoEmEdicao}>
+		<input type="hidden" name="id" th:field="*{id}">
+		<label for="nome">Nome: </label><input type="text" name="nome" th:field="*{nome}">
+		<label for="descricao">Descrição: </label><input type="text" name="descricao" th:field="*{descricao}">
+		<label for="preco">Preço: </label><input type="text" name="preco" th:field="*{preco}">
+		<button type="submit">Salvar</button>
+	</form>
+</body>
+</html>

@@ -15,16 +15,18 @@
 				<th>DESCRIÇÃO</th>
 				<th>PREÇO</th>
 				<th>ALTERAR</th>
+				<th>ADICIONAR AO CARRINHO</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="produto : ${produtos}">
-				<td ><a th:href="${'/produtos/excluir?id=' + produto.id}">Excluir</a></td>
+				<td><a th:href="${'/produtos/excluir?id=' + produto.id}">Excluir</a></td>
 				<td th:text="${produto.id}">
 				<td th:text="${produto.nome}"></td>
 				<td th:text="${produto.descricao}"></td>
 				<td th:text="${produto.preco}"></td>
-				<td ><a th:href="${'/produtos/antesAlterar?id=' + produto.id}">Alterar</a></td>
+				<td><a th:href="${'/produtos/antesAlterar?id=' + produto.id}">Alterar</a></td>
+				<td><a th:href="${'/carrinho/add?id=' + produto.id}">Adicionar ao Carrinho</a></td>
 			</tr>
 		</tbody>
 	</table>

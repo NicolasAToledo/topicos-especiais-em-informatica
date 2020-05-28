@@ -1,4 +1,4 @@
-package com.topicos.demo;
+package com.topicos.demo.produto.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.topicos.demo.produto.dominio.Produto;
+import com.topicos.demo.produto.persistencia.ProdutoRepositorio;
 
 import lombok.AllArgsConstructor;
 

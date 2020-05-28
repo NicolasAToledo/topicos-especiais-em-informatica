@@ -1,4 +1,4 @@
-package com.topicos.demo;
+package com.topicos.demo.produto.dominio;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

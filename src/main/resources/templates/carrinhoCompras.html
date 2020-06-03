@@ -9,30 +9,58 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1>Carrinho de Compras</h1>
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">Carrinho de Compras</h1>
+				<p class="lead">A seguir, você encontra os produtos do seu
+					carrinho de compras.</p>
+			</div>
+		</div>
 
-	<p th:if="${erro != null}">O produto especificado para adicionar ao
-		carrinho não existe!</p>
+		<div class="row" th:if="${erro != null}">
+			<div class="col-12">
+				<div class="alert alert-danger" role="alert">O produto
+					especificado para adicionar ao carrinho não existe!
+				</div>
+			</div>
+		</div>
 
-	<ul>
-		<li th:each="produto : ${carrinho.produtosCarrinho}"><span
-			th:text="${produto.nome}"></span> - R$ <span
-			th:text="${produto.preco}"></span></li>
-	</ul>
+		<div class="row">
+			<div class="col-md-4 order-md-2 mb-4">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-muted">Seu carrinho</span> <span
+						class="badge badge-secondary badge-pill">3</span>
+				</h4>
+				<ul class="list-group mb-3">
+					<li class="list-group-item d-flex justify-content-between lh-condensed" th:each="produto : ${carrinho.produtosCarrinho}">
+						<div>
+							<h6 class="my-0" th:text="${produto.nome}"></h6>
+						</div> 
+						<span class="text-muted">R$ <span th:text="${produto.preco}"></span></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between">
+              			<span>Total (BRL)</span>
+              			<strong>R$<p th:text="${total}"></p></strong>
+            		</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous">
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous">
 	</script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous">
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous">	
 	</script>
 	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-		crossorigin="anonymous">
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+			crossorigin="anonymous">
 	</script>
 </body>
 </html>

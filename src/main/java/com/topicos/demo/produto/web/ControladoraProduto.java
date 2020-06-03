@@ -38,14 +38,26 @@ public class ControladoraProduto {
 	public ModelAndView inserir(Produto produto) {
 		this.produtoRepositorio.save(produto);
 		
-		return new ModelAndView("sucessoInsercao");
+		List<Produto> produtos = this.produtoRepositorio.findAll();
+		Produto produtoEmEdicao = new Produto();
+		ModelAndView modelAndView = new ModelAndView("listar");
+		modelAndView.addObject("produtos", produtos);
+		modelAndView.addObject("produtoEmEdicao", produtoEmEdicao);
+		modelAndView.addObject("operacao", true);
+		return modelAndView;
 	}
 	
 	@GetMapping("/excluir")
 	public ModelAndView excluir(@RequestParam("id") Long id) {
 		this.produtoRepositorio.deleteById(id);
 		
-		return new ModelAndView("sucessoExclusao");
+		List<Produto> produtos = this.produtoRepositorio.findAll();
+		Produto produtoEmEdicao = new Produto();
+		ModelAndView modelAndView = new ModelAndView("listar");
+		modelAndView.addObject("produtos", produtos);
+		modelAndView.addObject("produtoEmEdicao", produtoEmEdicao);
+		modelAndView.addObject("operacao", true);
+		return modelAndView;
 	}
 
 	@GetMapping("antesAlterar")

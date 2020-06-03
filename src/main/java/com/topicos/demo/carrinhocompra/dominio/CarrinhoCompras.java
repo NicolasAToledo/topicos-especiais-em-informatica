@@ -1,7 +1,7 @@
 package com.topicos.demo.carrinhocompra.dominio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -18,7 +18,8 @@ import lombok.Getter;
 @Component
 public class CarrinhoCompras {
 	
-	private List<Produto> produtosCarrinho = new ArrayList<>();
+	private Set<Produto> produtosCarrinho = new HashSet<>();
+	
 	
 	public void addProduto(Produto produto) {
 		this.produtosCarrinho.add(produto);
@@ -30,5 +31,17 @@ public class CarrinhoCompras {
 	
 	public void removeProduto(Produto produto) {
 		this.produtosCarrinho.remove(produto);
+	}
+	
+	/*public Double getSubTotal(Produto produto, int quantidade) {
+		return produto.getPreco() * quantidade;
+	}*/
+	
+	public Double getTotal() {
+		double total = 0.0;
+		for(Produto values: produtosCarrinho) {
+			total += values.getPreco(); 
+		}
+		return total;
 	}
 }

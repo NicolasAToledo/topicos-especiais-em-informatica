@@ -46,6 +46,8 @@ public class CarrinhoComprasControladora {
 		}
 		
 		modelAndView.addObject("carrinho", carrinhoCompras);
+		modelAndView.addObject("total", carrinhoCompras.getTotal());
+		modelAndView.addObject("totalItems", carrinhoCompras.size());
 		
 		return modelAndView;
 	}
